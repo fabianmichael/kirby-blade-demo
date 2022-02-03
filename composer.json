@@ -7,6 +7,12 @@
     "cms",
     "starterkit"
   ],
+  "repositories":[
+    {
+      "type": "vcs",
+      "url": "git@github.com:lukasleitsch/kirby-blade.git"
+    }
+  ],
   "homepage": "https://getkirby.com",
   "authors": [
     {
@@ -23,7 +29,8 @@
   },
   "require": {
     "php": ">=7.4.0 <8.2.0",
-    "getkirby/cms": "^3.6"
+    "getkirby/cms": "^3.6",
+    "afbora/kirby-blade": "@dev"
   },
   "scripts": {
     "start": [
@@ -31,7 +38,15 @@
       "@php -S localhost:8000 kirby/router.php"
     ]
   },
+  "autoload": {
+    "psr-4": {
+      "App\\View\\Components\\": "site/components/"
+    }
+  },
   "config": {
-    "optimize-autoloader": true
+    "optimize-autoloader": true,
+    "allow-plugins": {
+      "getkirby/composer-installer": true
+    }
   }
 }
